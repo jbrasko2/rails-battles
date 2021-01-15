@@ -1,16 +1,20 @@
 Rails Battles
 
+User
+    has_many :heroes
+    - Email
+    - Password
+
 Hero
-	has_many :potions
+    belongs_to :user
 	has_many :battles
-	has_many :enemies, through: :battles
+	has_many :monsters, through: :battles
 	- Name
-	- Password
 	- HP
 	- Damage
 	- XP
 
-Enemy
+Monster
 	has_many :battles
 	has_many :heroes, through: :battles
 	- Name
@@ -19,11 +23,14 @@ Enemy
 	- XP
 
 Battle
-	belongs_to :character
-	belongs_to :enemy
-	- character_id
-	- enemy_id
-
-Potions
 	belongs_to :hero
-	- HP
+	belongs_to :enemy
+	- hero_id
+	- monster_id
+
+
+
+    Users
+    Heroes
+    Monster
+    Battles
